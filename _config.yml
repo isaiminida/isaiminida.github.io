@@ -124,7 +124,7 @@ exclude: [
 ]
 
 # Theme
-version: v3.1.0
+version: live
 
 feed:
   posts_limit: 2000
