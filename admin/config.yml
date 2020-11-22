@@ -31,7 +31,7 @@ collections:
         widget: "image"
         allow_multiple: false
         required: false
-        hint: "<a href="#" class="myButton">Download</a>"
+        hint: "<a href="#" class="myButton">Download</a>."
       - label: "Body"
         name: "body"
         widget: "markdown"
