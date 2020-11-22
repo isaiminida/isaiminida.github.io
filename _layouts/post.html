@@ -36,6 +36,12 @@
 
             {% if site.two_columns_layout %}
                 <aside class="see-also">
+                    
+                    <!-- Bulletprofit - Ad Display Code -->
+<div id="adm-container-23128"></div><script data-cfasync="false" async type="text/javascript" src="//bulletprofitads.com/display/items.php?23128&5287&300&1050&4&0&46"></script>
+<!-- Bulletprofit - Ad Display Code -->
+
+                    
                     <h2>{{ site.translations.text.see_also | default: "See also" }}</h2>
                     <ul>
                         {% assign next_posts = site.posts | where_exp:"post","post.is_generated != true" | where_exp:"post","post.path != page.path" %}
@@ -79,31 +85,9 @@
         {% include subscription.html %}
         {% include share.html %}
         {% include author.html %}
-        {% include comments.html %}
         {% include footer.html %}
 
-        {% assign author = site.authors | where: "name", post.author | first %}
 
-        {% assign author_urls = '' %}
-        {% if author.github_username %}
-            {% assign author_urls = author_urls | append: '"https://github.com/' | append: author.github_username | append: '",' %}
-        {% endif %}
-        {% if author.facebook_username %}
-            {% assign author_urls = author_urls | append: '"https://www.facebook.com/' | append: author.facebook_username | append: '",' %}
-        {% endif %}
-        {% if author.twitter_username %}
-            {% assign author_urls = author_urls | append: '"https://twitter.com/' | append: author.twitter_username | append: '",' %}
-        {% endif %}
-        {% if author.medium_username %}
-            {% assign author_urls = author_urls | append: '"https://medium.com/@' | append: author.medium_username | append: '",' %}
-        {% endif %}
-        {% if author.instagram_username %}
-            {% assign author_urls = author_urls | append: '"https://www.instagram.com/' | append: author.instagram_username | append: '",' %}
-        {% endif %}
-        {% if author.linkedin_username %}
-            {% assign author_urls = author_urls | append: '"https://www.linkedin.com/in/' | append: author.linkedin_username | append: '",' %}
-        {% endif %}
-        {% if page.math %}
         <script>
             MathJax = {
                 tex: {
@@ -139,10 +123,8 @@
                 "image": {{ "/assets/img/user.jpg" | prepend: site.baseurl | prepend: site.url }},
                 {% endif %}
                 "jobTitle": "{{ author.position }}",
-                "url": "{{ author.url | prepend: site.baseurl | prepend: site.url }}",
-                "sameAs": [
-                    {{ author_urls | split: "," | join: "," }}
-                ]
+                "url": "{{ author.url | prepend: site.baseurl | prepend: site.url }}"
+               
             },
             "publisher": {
                 "@type": "Organization",
@@ -155,10 +137,8 @@
                     "height": "315"
                 }
             },
-            "mainEntityOfPage": "True",
-            "genre": "{{ page.category }}",
-            "articleSection": "{{ page.category }}",
-            "keywords": [{{ page.tags | join: '","' | append: '"' | prepend: '"' }}]
+            "mainEntityOfPage": "True"
+            
         }
         </script>
     </body>
