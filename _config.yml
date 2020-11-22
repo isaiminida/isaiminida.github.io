@@ -1,25 +1,46 @@
 # Site Settings
-name: Jekflix
-title: Jekflix | A blog theme for Jekyll
-description: Jekflix is a template for Jekyll inspired by Netflix and made by
-  Thiago Rossener.
+name: Isaimini
+title: Isaimini | Download and Watch Latest Tamil, Telugu, Malayalam, Hindi
+  Movies at High Quality.
+description: Download and Watch Latest Tamil, Telugu, Malayalam, Hindi Movies at
+  High Quality. Tamil Latest Movies and Tamil Dubbed Movies Free Download in HD
+  Online Watching Free Tentrockers
 tags:
-  - blog
-  - template
-  - jekyll
-  - theme
-  - netlify
-show_hero: true
+  - isaimini
+  - moviesda
+  - movies
+  - tamilrockers
+  - hindi
+  - telugu
+  - malaylam
+  - hollywood
+  - bollywood
+  - torrent
+  - 720p
+  - 1gb
+  - 400mb
+  - serials
+  - series
+  - cricket
+  - online
+  - movierulz
+  - 123movies
+  - isaidub
+  - kuttymovies
+  - kuttyrockers
+  - srirockers
+  - wetransfer
+  - dubbed
+  - telegram
+  - tamilkit
+  - movieskit
+  - proxy
+show_hero: false
+paginate: 20
 menu:
   - title: Home
     url: /
-  - title: About
-    url: /about
-  - title: Contact
-    url: /contact
-  - title: Feed
-    url: /feed.xml
-email: youremail@test.com
+email: ""
 disqus_username: disqus_username
 
 
@@ -34,16 +55,16 @@ medium_username: medium_username
 
 
 # Posts Settings
-show_time_bar: true
+show_time_bar: false
 show_modal_on_exit: false
-show_modal_on_finish_post: true
+show_modal_on_finish_post: false
 two_columns_layout: true
 
 
 # Advanced Settings
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
-google_analytics: "UA-XXXXXXXX-X"
+url: "https://isaimini.live" # the base hostname & protocol for your site
+google_analytics: "UA-179466109-1"
 language: "en"
 categories_folder: category
 sent_message_url: "/contact/message-sent/"
@@ -57,7 +78,7 @@ collections:
   authors:
     output: true
 paginate_path: "/page/:num/"
-show_get_theme_btn: true
+show_get_theme_btn: false
 use_logo: false
 
 # Content paginator
@@ -86,6 +107,8 @@ sass:
 plugins:
   - jekyll-paginate
   - jekyll-paginate-content
+  - jekyll-feed
+  - jekyll-sitemap 
 
 # Exclude my node related stuff
 exclude: [
@@ -102,3 +125,6 @@ exclude: [
 
 # Theme
 version: v3.1.0
+
+feed:
+  posts_limit: 2000
