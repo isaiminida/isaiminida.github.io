@@ -32,6 +32,10 @@ collections:
         widget: "image"
         allow_multiple: false
         required: false
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        required: false
   - label: "Pages"
     name: "pages"
     folder: "pages"
