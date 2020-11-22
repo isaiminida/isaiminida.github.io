@@ -5,8 +5,10 @@
         {% include minutes-to-read.html %}
         {% include svg-icons.html %}
         {% include header.html %}
-
+ 
         <section class="post {% if site.two_columns_layout %}two-columns{% else %}one-column{% endif %}">
+ 
+
             <article role="article" class="post-content">
                 <p class="post-info">
                     {% if page.date %}
@@ -16,7 +18,7 @@
                         </time>
                     {% endif %}
                     <svg id="clock" class="icon-clock"><use xlink:href="#icon-clock"></use></svg>
-                    <span>{{ minutesText }}</span>
+                    <span>{{ minutesText }}</span> <span>{{ post.category }}</span>
                 </p>
                 <h1 class="post-title">{{ page.title }}</h1>
                 <p class="post-subtitle">{{ page.subtitle }}</p>
@@ -28,7 +30,8 @@
                 {% include pagination-post.html progressBar=true %}
 
                 {% include toc.html %}
-                   <center>
+       
+ <center>
 <!-- Bulletprofit - Ad Display Code -->
 <div id="adm-container-23130"></div><script data-cfasync="false" async type="text/javascript" src="//bulletprofitads.com/display/items.php?23130&5287&300&250&4&0&39"></script>
 <!-- Bulletprofit - Ad Display Code -->
@@ -39,23 +42,26 @@
 <div id="adm-container-23129"></div><script data-cfasync="false" async type="text/javascript" src="//bulletprofitads.com/display/items.php?23129&5287&300&250&4&0&39"></script>
 <!-- Bulletprofit - Ad Display Code -->
                     </center>
-
+<div class="tags">
+                                            {% for tag in post.tags %}
+                                                {% if tag != "" %}
+                                                    <a href="{{ site.baseurl}}/tags/#{{tag | slugify }}">#{{ tag }}</a>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
                 {% include pagination-post.html %}
             </article>
 
             {% if site.two_columns_layout %}
                 <aside class="see-also">
-                    
-                    <!-- Bulletprofit - Ad Display Code -->
+                    <h2>{{ site.translations.text.see_also | default: "See also" }}</h2>
+                     <!-- Bulletprofit - Ad Display Code -->
 <div id="adm-container-23128"></div><script data-cfasync="false" async type="text/javascript" src="//bulletprofitads.com/display/items.php?23128&5287&300&1050&4&0&46"></script>
 <!-- Bulletprofit - Ad Display Code -->
-
-                    
-                    <h2>{{ site.translations.text.see_also | default: "See also" }}</h2>
                     <ul>
                         {% assign next_posts = site.posts | where_exp:"post","post.is_generated != true" | where_exp:"post","post.path != page.path" %}
                         {% assign shuffled_array = next_posts | shuffle %}
-                        {% for post in shuffled_array limit:3 %}
+                        {% for post in shuffled_array limit:5 %}
                             <li>
                                 <a href="{{ post.url | prepend: site.baseurl }}">
                                     {% if post.optimized_image %}
@@ -70,6 +76,8 @@
                             </li>
                         {% endfor %}
                     </ul>
+          
+
                 </aside>
             {% endif %}
 
@@ -93,10 +101,30 @@
 
         {% include subscription.html %}
         {% include share.html %}
-        {% include author.html %}
-        {% include footer.html %}
+        
 
+        {% assign author = site.authors | where: "name", post.author | first %}
 
+        {% assign author_urls = '' %}
+        {% if author.github_username %}
+            {% assign author_urls = author_urls | append: '"https://github.com/' | append: author.github_username | append: '",' %}
+        {% endif %}
+        {% if author.facebook_username %}
+            {% assign author_urls = author_urls | append: '"https://www.facebook.com/' | append: author.facebook_username | append: '",' %}
+        {% endif %}
+        {% if author.twitter_username %}
+            {% assign author_urls = author_urls | append: '"https://twitter.com/' | append: author.twitter_username | append: '",' %}
+        {% endif %}
+        {% if author.medium_username %}
+            {% assign author_urls = author_urls | append: '"https://medium.com/@' | append: author.medium_username | append: '",' %}
+        {% endif %}
+        {% if author.instagram_username %}
+            {% assign author_urls = author_urls | append: '"https://www.instagram.com/' | append: author.instagram_username | append: '",' %}
+        {% endif %}
+        {% if author.linkedin_username %}
+            {% assign author_urls = author_urls | append: '"https://www.linkedin.com/in/' | append: author.linkedin_username | append: '",' %}
+        {% endif %}
+        {% if page.math %}
         <script>
             MathJax = {
                 tex: {
@@ -111,9 +139,9 @@
         <script type="application/ld+json">
         {
             "@context": "http://schema.org",
-            "@type": "BlogPosting",
+            "@type": "NewsArticle",
             "name": "{{ page.title }}",
-            "headline": "{{ page.subtitle }}",
+            "headline": "{{ page.title }}",
             "description": "{{ page.description }}",
             "image": "{{ page.image }}",
             "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
@@ -132,8 +160,10 @@
                 "image": {{ "/assets/img/user.jpg" | prepend: site.baseurl | prepend: site.url }},
                 {% endif %}
                 "jobTitle": "{{ author.position }}",
-                "url": "{{ author.url | prepend: site.baseurl | prepend: site.url }}"
-               
+                "url": "{{ author.url | prepend: site.baseurl | prepend: site.url }}",
+                "sameAs": [
+                    {{ author_urls | split: "," | join: "," }}
+                ]
             },
             "publisher": {
                 "@type": "Organization",
@@ -146,16 +176,20 @@
                     "height": "315"
                 }
             },
-            "mainEntityOfPage": "True"
-            
+            "mainEntityOfPage": "True",
+            "genre": "{{ page.category }}",
+            "articleSection": "{{ page.category }}",
+            "keywords": [{{ page.tags | join: '","' | append: '"' | prepend: '"' }}]
         }
         </script>
-                   <script type="text/javascript">           
+
+           <script type="text/javascript">           
                var app_url = 'https://gplinks.in/';
                var app_api_token = '5c2db10bd74159dcb6260741c590f71d5c8e6ead';
                var app_advert = 2;
                var app_exclude_domains = ["isaimini.live"];
            </script>
            <script src='//gplinks.in/js/full-page-script.js'></script>
+
     </body>
 </html>
