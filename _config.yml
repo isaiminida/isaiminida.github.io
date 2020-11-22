@@ -107,7 +107,6 @@ sass:
 plugins:
   - jekyll-paginate
   - jekyll-paginate-content
-  - jekyll-feed
   - jekyll-sitemap 
 
 # Exclude my node related stuff
