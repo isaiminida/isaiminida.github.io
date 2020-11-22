@@ -24,7 +24,6 @@ collections:
         widget: "string"
       - label: "Description"
         name: "description"
-        hint: "This will be used across the pages and for search engines."
         widget: "string"
       - label: "Featured Image"
         name: "image"
