@@ -81,7 +81,7 @@ collections:
     files:
       - label: "Site"
         name: "site"
-        file: "src/yml/site.yml"
+        file: "_config.yml"
         fields:
           - label: "Name"
             name: "name"
