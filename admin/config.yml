@@ -4,31 +4,6 @@ backend:
 publish_mode: editorial_workflow
 media_folder: "assets/img/uploads"
 collections:
-  - label: "Categories"
-    name: "categories"
-    folder: "category"
-    create: true
-    editor:
-      preview: false
-    slug: "{{slug}}"
-    preview_path: "category/{{slug}}"
-    extension: "md"
-    fields:
-      - label: "Layout"
-        name: "layout"
-        widget: "hidden"
-        default: "category"
-      - label: "Title"
-        name: "title"
-        widget: "string"
-      - label: "Slug"
-        name: "slug"
-        widget: "hidden"
-        default: "{{slug}}"
-      - label: "Description"
-        name: "description"
-        widget: "string"
-        required: false
   - label: "Posts"
     name: "posts"
     folder: "_posts"
@@ -48,10 +23,6 @@ collections:
       - label: "Title"
         name: "title"
         widget: "string"
-      - label: "Subtitle"
-        name: "subtitle"
-        widget: "string"
-        required: false
       - label: "Description"
         name: "description"
         hint: "This will be used across the pages and for search engines."
@@ -61,37 +32,6 @@ collections:
         widget: "image"
         allow_multiple: false
         required: false
-      - label: "Optimized Image"
-        name: "optimized_image"
-        widget: "image"
-        allow_multiple: false
-        required: false
-        hint: "You can set an optimized image version to show on the home page"
-      - label: "Category"
-        name: "category"
-        widget: "relation"
-        collection: "categories"
-        searchFields: ["title"]
-        valueField: "slug"
-        displayFields: ["title"]
-      - label: "Tags"
-        name: "tags"
-        hint: "Separate with commas. These will also be used as keywords for search engines."
-        widget: "list"
-      - label: "Author"
-        name: "author"
-        widget: "relation"
-        collection: "authors"
-        displayFields: [display_name]
-        searchFields: [display_name]
-        valueField: "name"
-      - label: "Paginate"
-        name: "paginate"
-        widget: "boolean"
-        default: false
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
   - label: "Pages"
     name: "pages"
     folder: "pages"
@@ -132,59 +72,7 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
-  - label: "Authors"
-    name: "authors"
-    folder: "_authors/"
-    create: true
-    editor:
-      preview: false
-    fields:
-      - label: "Layout"
-        name: "layout"
-        widget: "hidden"
-        default: "author"
-      - label: "Photo"
-        name: "photo"
-        widget: "image"
-        required: false
-        hint: "Use a square picture"
-      - label: "Short Name"
-        name: "name"
-        widget: "string"
-      - label: "Diplay Name"
-        name: "display_name"
-        widget: "string"
-      - label: "Position"
-        name: "position"
-        widget: "string"
-        required: false
-      - label: "Bio"
-        name: "bio"
-        widget: "text"
-      - label: "GitHub Username"
-        name: "github_username"
-        widget: "string"
-        required: false
-      - label: "Facebook Username"
-        name: "facebook_username"
-        widget: "string"
-        required: false
-      - label: "Twitter Username"
-        name: "twitter_username"
-        widget: "string"
-        required: false
-      - label: "Instagram Username"
-        name: "instagram_username"
-        widget: "string"
-        required: false
-      - label: "LinkedIn Username"
-        name: "linkedin_username"
-        widget: "string"
-        required: false
-      - label: "Medium Username"
-        name: "medium_username"
-        widget: "string"
-        required: false
+
   - label: "Settings"
     name: "settings"
     editor:
