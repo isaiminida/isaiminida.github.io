@@ -1,4 +1,4 @@
-const playerInstance = jwplayer("player").setup({
+﻿const playerInstance = jwplayer("player").setup({
   controls: true,
   displaytitle: false,
   fullscreen: "true",
@@ -30,20 +30,10 @@ const playerInstance = jwplayer("player").setup({
       image:
         "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg",
       sources: [
+        
         {
           file:
-            "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4",
-          label: "1080p FHD",
-          default: true
-        },
-        {
-          file:
-            "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4",
-          label: "720p HD"
-        },
-        {
-          file:
-            "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4",
+            "http://d10.uptofiles.site//files/Tamil%20Dubbed%20Movies/Angels%20Fallen%20(2020)/Angels%20Fallen%20(480x320)/Angels%20Fallen%202020.mp4",
           label: "480p SD"
         }
       ],
