@@ -30,7 +30,17 @@
       image:
         "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg",
       sources: [
-        
+        {
+          file:
+            "http://d10.uptofiles.site//files/Tamil%20Dubbed%20Movies/Angels%20Fallen%20(2020)/Angels%20Fallen%20(480x320)/Angels%20Fallen%202020.mp4",
+          label: "1080p FHD",
+          default: true
+        },
+        {
+          file:
+            "http://d10.uptofiles.site//files/Tamil%20Dubbed%20Movies/Angels%20Fallen%20(2020)/Angels%20Fallen%20(480x320)/Angels%20Fallen%202020.mp4",
+          label: "720p HD"
+        },
         {
           file:
             "http://d10.uptofiles.site//files/Tamil%20Dubbed%20Movies/Angels%20Fallen%20(2020)/Angels%20Fallen%20(480x320)/Angels%20Fallen%202020.mp4",
