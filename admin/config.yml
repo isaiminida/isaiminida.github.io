@@ -4,10 +4,10 @@ backend:
 media_folder: "assets/img/uploads"
 collections:
   - label: "Movies"
-    name: "posts"
+    name: "movies"
     folder: "_movies"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     preview_path: "{{title}}"
     extension: "md"
     fields:
