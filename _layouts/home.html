@@ -46,7 +46,7 @@ layout: main
 <!-- Bulletprofit - Ad Display Code -->
 </center>
     <section id="grid" style="margin-top: 10px;" class="row flex-grid">
-        {% for post in posts offset: offset %}
+        {% for post in movies offset: offset %}
             <article class="box-item" style=" background: rgb(0 0 0); border-radius: 10px; ">
                 <div class="box-body">
                     <a class="cover" href="{{ post.url | prepend: site.baseurl }}">
