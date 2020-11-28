@@ -3,11 +3,11 @@ backend:
   branch: master
 media_folder: "assets/img/uploads"
 collections:
-  - label: "Posts"
+  - label: "Movies"
     name: "posts"
-    folder: "_posts"
+    folder: "_movies"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     preview_path: "{{title}}"
     extension: "md"
     fields:
@@ -27,7 +27,13 @@ collections:
         widget: "string"
       - label: "Starring"
         name: "movieactor"
-        widget: "string"          
+        widget: "string"      
+      - label: "Download Server 1"
+        name: "link1"
+        widget: "string" 
+      - label: "Download Server 2"
+        name: "link2"
+        widget: "string"         
       - label: "Description"
         name: "description"
         widget: "string"
