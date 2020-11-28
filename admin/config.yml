@@ -1,11 +1,37 @@
 backend:
   name: git-gateway
   branch: master
+publish_mode: editorial_workflow
 media_folder: "assets/img/uploads"
 collections:
-  - label: "Movies"
-    name: "movies"
-    folder: "_movies"
+  - label: "Categories"
+    name: "categories"
+    folder: "category"
+    create: true
+    editor:
+      preview: false
+    slug: "{{slug}}"
+    preview_path: "category/{{slug}}"
+    extension: "md"
+    fields:
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "category"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Slug"
+        name: "slug"
+        widget: "hidden"
+        default: "{{slug}}"
+      - label: "Description"
+        name: "description"
+        widget: "string"
+        required: false
+  - label: "Posts"
+    name: "posts"
+    folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     preview_path: "{{title}}"
@@ -19,33 +45,53 @@ collections:
         name: "layout"
         widget: "hidden"
         default: "post"
-      - label: "Movie"
+      - label: "Title"
         name: "title"
         widget: "string"
-      - label: "Year"
-        name: "movieyear"
+      - label: "Subtitle"
+        name: "subtitle"
         widget: "string"
-      - label: "Starring"
-        name: "movieactor"
-        widget: "string"      
-      - label: "Download Server 1"
-        name: "link1"
-        widget: "string" 
-      - label: "Download Server 2"
-        name: "link2"
-        widget: "string"         
+        required: false
       - label: "Description"
         name: "description"
+        hint: "This will be used across the pages and for search engines."
         widget: "string"
       - label: "Featured Image"
         name: "image"
         widget: "image"
         allow_multiple: false
         required: false
+      - label: "Optimized Image"
+        name: "optimized_image"
+        widget: "image"
+        allow_multiple: false
+        required: false
+        hint: "You can set an optimized image version to show on the home page"
+      - label: "Category"
+        name: "category"
+        widget: "relation"
+        collection: "categories"
+        searchFields: ["title"]
+        valueField: "slug"
+        displayFields: ["title"]
+      - label: "Tags"
+        name: "tags"
+        hint: "Separate with commas. These will also be used as keywords for search engines."
+        widget: "list"
+      - label: "Author"
+        name: "author"
+        widget: "relation"
+        collection: "authors"
+        displayFields: [display_name]
+        searchFields: [display_name]
+        valueField: "name"
+      - label: "Paginate"
+        name: "paginate"
+        widget: "boolean"
+        default: false
       - label: "Body"
         name: "body"
         widget: "markdown"
-        required: false
   - label: "Pages"
     name: "pages"
     folder: "pages"
@@ -86,7 +132,59 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
-
+  - label: "Authors"
+    name: "authors"
+    folder: "_authors/"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "author"
+      - label: "Photo"
+        name: "photo"
+        widget: "image"
+        required: false
+        hint: "Use a square picture"
+      - label: "Short Name"
+        name: "name"
+        widget: "string"
+      - label: "Diplay Name"
+        name: "display_name"
+        widget: "string"
+      - label: "Position"
+        name: "position"
+        widget: "string"
+        required: false
+      - label: "Bio"
+        name: "bio"
+        widget: "text"
+      - label: "GitHub Username"
+        name: "github_username"
+        widget: "string"
+        required: false
+      - label: "Facebook Username"
+        name: "facebook_username"
+        widget: "string"
+        required: false
+      - label: "Twitter Username"
+        name: "twitter_username"
+        widget: "string"
+        required: false
+      - label: "Instagram Username"
+        name: "instagram_username"
+        widget: "string"
+        required: false
+      - label: "LinkedIn Username"
+        name: "linkedin_username"
+        widget: "string"
+        required: false
+      - label: "Medium Username"
+        name: "medium_username"
+        widget: "string"
+        required: false
   - label: "Settings"
     name: "settings"
     editor:
@@ -95,7 +193,7 @@ collections:
     files:
       - label: "Site"
         name: "site"
-        file: "_config.yml"
+        file: "src/yml/site.yml"
         fields:
           - label: "Name"
             name: "name"
@@ -412,5 +510,3 @@ collections:
             name: "sent_message_url"
             hint: "URL where the user will be redirected for after submit the contact form. Ex: /contact/message-sent/"
             required: false
-
-
