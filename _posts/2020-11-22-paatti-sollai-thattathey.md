@@ -10,6 +10,17 @@ description: Paatti Sollai Thattathey (1988) TamilRockers Download Paatti Sollai
   Paatti Sollai Thattathey (Tamil) Download Paatti Sollai Thattathey (Tamil) Mp4
   Download TamilYaya.Net
 image: /assets/img/uploads/download.jpg
+category: code
+tags:
+  - santhanam
+  - comedy
+  - "2020"
+  - tamil
+  - biskoth
+  - isaimini
+  - tamilrockers
+author: Tentrockers
+paginate: true
 ---
 **File Name**: Paatti Sollai Thattathey 1988 HD.mp4
 
