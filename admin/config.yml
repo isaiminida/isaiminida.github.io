@@ -20,7 +20,7 @@ collections:
         widget: "hidden"
         default: "post"
       - label: "Movie"
-        name: "moviename"
+        name: "title"
         widget: "string"
       - label: "Year"
         name: "movieyear"
